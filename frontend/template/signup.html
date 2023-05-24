@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>signup</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
+<section class="text-center"><span id="warning-container"><i data-reactroot=""></i></span>
+    <main class="form-login">
+        <form>
+            <img src="../static/images/logo_login.png" class="login_logo" alt="">
+            <h1 class="">Создайте аккаунт</h1>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend1"><img src="../static/images/person.svg"
+                                                                            alt=""></span>
+                <input type="text" class="form-control" id="validationDefaultFIO"
+                       aria-describedby="inputGroupPrepend1" required="" placeholder="ФИО">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2"><img src="../static/images/mail.svg"
+                                                                            alt=""></span>
+                <input type="email" class="form-control" id="validationDefaultUsername"
+                       aria-describedby="inputGroupPrepend2" required="" placeholder="Электронная почта">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend3"><img src="../static/images/lock.svg"
+                                                                            alt=""></span>
+                <input type="password" class="form-control" id="validationDefaultPassword"
+                       aria-describedby="inputGroupPrepend3" required="" placeholder="Пароль">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend4"><img src="../static/images/lock.svg"
+                                                                            alt=""></span>
+                <input type="password" class="form-control" id="validationDefaultPasswordConfirm"
+                       aria-describedby="inputGroupPrepend4" required="" placeholder="Подтверждение пароля">
+            </div>
 
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+            <div class="signup-ref">
+                <span>Уже есть аккаунт? <a href="#login">Войдите в систему</a></span>
+            </div>
+        </form>
+
+    </main>
+</section>
 </body>
 </html>
+
