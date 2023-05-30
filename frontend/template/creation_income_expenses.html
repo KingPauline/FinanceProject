@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Lumincoin Finance</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/income_expenses_category.css">
+
 </head>
 <body>
 <div class="d-flex flex-column flex-shrink-0 side-bar">
     <div class="logo">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="static/images/logo.png" alt="">
+            <img src="../static/images/logo.png" alt="">
         </a>
     </div>
     <div class="navigation">
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
+                <a href="#" class="nav-link" aria-current="page">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" fill="none">
                         <path fill-rule="evenodd"
                               d="M1.5 12.396v-6.5h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-6.5h1v6.5a1.5 1.5 0 0 1-1.5 1.5H3a1.5 1.5 0 0 1-1.5-1.5ZM12.5 1.396v3.5l-2-2v-1.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5Z"
@@ -47,12 +49,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <button class="btn btn-toggle  rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                <button class="btn btn-toggle  rounded border-0 collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#home-collapse" aria-expanded="false">
                     <div class="category active">Категория</div>
                     <div class="collapse" id="home-collapse" style="">
                         <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                            <li class="toggle-item"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Доходы</a></li>
-                            <li class="toggle-item "><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Расходы</a></li></ul>
+                            <li class="toggle-item"><a href="#"
+                                                       class="link-dark d-inline-flex text-decoration-none rounded">Доходы</a>
+                            </li>
+                            <li class="toggle-item "><a href="#"
+                                                        class="link-dark d-inline-flex text-decoration-none rounded">Расходы</a>
+                            </li>
+                        </ul>
                     </div>
                 </button>
             </li>
@@ -67,6 +75,34 @@
         <div class="user-info-login">PupaANDLupa</div>
     </div>
 </div>
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<section class="income_category">
+    <div class="title"><h1>Создание дохода/расхода</h1></div>
+
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Тип</option>
+        <option value="1">Доход</option>
+        <option value="2">Расход</option>
+    </select>
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Категория</option>
+        <option value="1"></option>
+        <option value="2"></option>
+    </select>
+    <div class="input-group mb-3">
+        <input type="number" class="form-control" aria-describedby="basic-addon1" placeholder="Сумма в $...">
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" onfocus="(this.type='date')" class="form-control" aria-describedby="basic-addon1" placeholder="Дата...">
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Комментарий...">
+    </div>
+    <div class="buttons-creation">
+        <button type="button" class="btn btn-success">Создать</button>
+        <button type="button" class="btn btn-danger">Отмена</button>
+    </div>
+
+</section>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
