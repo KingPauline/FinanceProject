@@ -1,44 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/login.css">
-</head>
-<body>
 <section class="text-center"><span id="warning-container"><i data-reactroot=""></i></span>
     <main class="form-login">
         <form>
-            <img src="../static/images/logo_login.png" class="login_logo" alt="">
+            <img src="../images/logo_login.png" class="login_logo" alt="">
             <h1 class="">Вход</h1>
             <div class="input-group">
-                <span class="input-group-text" id="inputGroupPrepend1"><img src="../static/images/mail.svg"
+                <span class="input-group-text" id="inputGroupPrepend1"><img src="../images/mail.svg"
                                                                             alt=""></span>
-                <input type="email" class="form-control" id="validationDefaultUsername"
+                <input type="email" class="form-control" id="email"
                        aria-describedby="inputGroupPrepend1" required="" placeholder="Электронная почта">
             </div>
             <div class="input-group">
-                <span class="input-group-text" id="inputGroupPrepend2"><img src="../static/images/lock.svg"
+                <span class="input-group-text" id="inputGroupPrepend2"><img src="../images/lock.svg"
                                                                             alt=""></span>
-                <input type="password" class="form-control" id="validationDefaultPassword"
+                <input type="password" class="form-control" id="password"
                        aria-describedby="inputGroupPrepend2" required="" placeholder="Пароль">
             </div>
 
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="remember-me"> Запомнить меня
+                    <input type="checkbox" value="remember-me" id="rememberMe"> Запомнить меня
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" id="process">Войти</button>
             <div class="signup-ref">
-                <span>Еще нет аккаунта? <a href="#signup">Пройдите регистрацию</a></span>
+                <span>Еще нет аккаунта? <a href="/#/signup">Пройдите регистрацию</a></span>
             </div>
         </form>
 
     </main>
 </section>
-</body>
-</html>
+
 

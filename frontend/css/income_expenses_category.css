@@ -44,15 +44,17 @@
     left: 0;
     margin: 0;
     position: fixed;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     background-color:rgba(0, 0, 0, 0.5);
+    animation-name: fadeIn;
+    display: none;
 }
 .popap-info {
     position: absolute;
     width: 37vw;
-    height: 20vh;
+    min-height: 170px;
     background-color: white;
     padding: 40px;
     display: flex;
@@ -67,6 +69,7 @@
     line-height: 23px;
     text-align: center;
     color: #290661;
+    margin-bottom: 20px;
 }
 .buttons {
     display: flex;
@@ -76,12 +79,12 @@
     align-items: center;
 }
 .btn-outline-secondary {
-    width: 100px;
-    height: 37px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
+    width: 100px !important;
+    height: 37px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-right: 20px !important;
 }
 .buttons .btn, .buttons-creation .btn {
     padding: 11px 16px;
@@ -171,4 +174,64 @@
 }
 .table {
     margin-top: 40px;
+    width: 75vw;
+}
+thead {
+    border-top: 1px solid #dee2e6;
+
+}
+thead th {
+    font-weight: 700;
+    font-size: 16px;
+    color: #052C65;
+    padding: 16px 0px 15px 16px !important;
+    text-align: center;
+}
+tbody td, th {
+    text-align: center;
+    padding: 16px 0px 15px 16px !important;;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #000000;
+}
+.table-icons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    column-gap: 10.5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+#incomeChart {
+    width: 500px !important;
+    height: 500px !important;
+}
+#outcomeChart {
+    width: 500px !important;
+    height: 500px !important;
+}
+.pies {
+    margin-top: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 73px;
+}
+.filters {
+    display: flex;
+    column-gap: 20px;
+}
+.vertical-line {
+    border-right: 1px solid #D9D9D9;
+    height: 450px;
 }

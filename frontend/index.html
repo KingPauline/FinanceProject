@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lumincoin Finance</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
+    <title id="page-title">Lumincoin Finance</title>
+    <link rel="stylesheet"  href="css/common.css">
+    <link rel="stylesheet"  id= "style" href="css/common.css">
 </head>
-<body>
+<body id="body">
+<section id="side-bar">
 <div class="d-flex flex-column flex-shrink-0 side-bar">
     <div class="logo">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="static/images/logo.png" alt="">
+            <img src="/images/logo.png" alt="">
         </a>
     </div>
     <div class="navigation">
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
+                <a href="#/main" class="nav-link active" aria-current="page">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" fill="none">
                         <path fill-rule="evenodd"
                               d="M1.5 12.396v-6.5h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-6.5h1v6.5a1.5 1.5 0 0 1-1.5 1.5H3a1.5 1.5 0 0 1-1.5-1.5ZM12.5 1.396v3.5l-2-2v-1.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5Z"
@@ -59,14 +60,15 @@
         </ul>
         <div class="balance">
             <div class="balance-text">Баланс:</div>
-            <div class="balance-amount">500$</div>
+            <div class="balance-amount" id="balance-amount">500$</div>
         </div>
     </div>
     <div class="user-info">
-        <div class="user-info-icon"><img src="static/images/user_icon.png" alt=""></div>
-        <div class="user-info-login">PupaANDLupa</div>
+        <div class="user-info-icon"><img src="/images/user_icon.png" alt=""></div>
+        <div class="user-info-login" id="profile-fullname">PupaANDLupa</div>
     </div>
 </div>
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</section>
+<div id="content"></div>
 </body>
 </html>
