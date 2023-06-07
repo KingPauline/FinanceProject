@@ -1,4 +1,5 @@
 import {Auth} from "./auth.js";
+import {log10} from "chart.js/helpers";
 
 export class CustomHttp {
     static async request(url, method = "GET", body= null) {
@@ -11,25 +12,29 @@ export class CustomHttp {
             },
         }
         let token = localStorage.getItem(Auth.accessTokenKey);
-        if (token !== 'undefined' && token !== undefined) {
+        if (token !== 'undefined' && token !== undefined && token!==null) {
             params.headers['x-auth-token'] = token;
         }
          if (body) {
              params.body = JSON.stringify(body)
          }
-
-        const response = await fetch(url, params);
-        if (response.status < 200 || response.status >= 300) {
-            if (response.status === 401) {
-                const result = await Auth.processUnauthorizedResponse();
-                if (result) {
-                    return await this.request(url, method, body)
-                } else {
-                    return null;
+        try {
+            const response = await fetch(url, params);
+            if (response.status < 200 || response.status >= 300) {
+                if (response.status === 401) {
+                    const result = await Auth.processUnauthorizedResponse();
+                    if (result) {
+                        return await this.request(url, method, body)
+                    } else {
+                        return null;
+                    }
                 }
+                throw new Error(response.message);
             }
-            throw new Error(response.message);
+            return await  response.json();
+        } catch {
+            console.log('ашипка')
         }
-        return await  response.json();
+
     }
 }

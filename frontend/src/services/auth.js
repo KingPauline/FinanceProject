@@ -32,7 +32,7 @@ export class Auth {
 
     static async Logout() {
         const refreshToken = localStorage.getItem(this.refreshTokenKey);
-        if (refreshToken !== 'undefined' && refreshToken !== undefined) {
+        if (refreshToken !== 'undefined' && refreshToken !== undefined && refreshToken !== null) {
             const response = await fetch(config.host + '/logout', {
                 method: 'POST',
                 headers: {

@@ -11,6 +11,7 @@ class App {
     }
     handleRouteChanging() {
         this.router.openRoute();
+        this.router.sideBarSettings();
     }
 }
 (new App ());

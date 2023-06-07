@@ -3,6 +3,8 @@ import {Form} from "./components/form.js";
 import {MainDashboard} from "./components/MainDashboard.js";
 import {CustomHttp} from "./services/custom-http";
 import config from "../config/config";
+import {CategoryShow} from "./components/CategoryShow.js";
+import {CategoryEditor} from "./components/CategoryEditor.js";
 
 
 
@@ -13,8 +15,10 @@ export class Router {
         this.styleElement = document.getElementById('style');
         this.titleElement = document.getElementById('page-title');
         this.profileFullNameElement = document.getElementById('profile-fullname');
-        // const sideBar = document.getElementById('side-bar')
-        // document.getElementById('body').append(sideBar);
+        this.logoutElement = document.getElementById('user-info');
+        document.getElementsByClassName('category')[0].classList.toggle('active');
+
+
 
         this.routes = [
             {
@@ -50,7 +54,7 @@ export class Router {
                 template: 'template/income_category.html',
                 styles: 'css/income_expenses_category.css',
                 load: () => {
-                    // new CategoryShow('income')
+                    new CategoryShow('income')
                 }
             },
             {
@@ -68,16 +72,16 @@ export class Router {
                 template: 'template/editing_income_expenses_category.html',
                 styles: 'css/income_expenses_category.css',
                 load: () => {
-                    // new CategoryEditor('income')
+                    new CategoryEditor('income')
                 }
             },
             {
                 route: '#/category_expenses',
                 title: 'Категории расходов',
-                template: 'template/expenses_category.html',
+                template: 'template/income_category.html',
                 styles: 'css/income_expenses_category.css',
                 load: () => {
-                    // new CategoryShow('expenses')
+                    new CategoryShow('expenses')
                 }
             },
             {
@@ -95,7 +99,7 @@ export class Router {
                 template: 'template/editing_income_expenses_category.html',
                 styles: 'css/income_expenses_category.css',
                 load: () => {
-                    // new CategoryEditor('expenses')
+                    new CategoryEditor('expenses')
                 }
             },
             {
@@ -131,16 +135,19 @@ export class Router {
 
 
     async openRoute() {
-
+        this.logoutElement.onclick = function () {
+            document.getElementById('logout-popap').style.display = 'flex'
+        }
         const urlRoute = window.location.hash
-        // if (urlRoute === '#/logout') {
-        //     Auth.Logout();
-        //     window.location.href = '#/';
-        //     return;
-        // }
+        if (urlRoute === '#/logout') {
+            Auth.Logout();
+            window.location.href = '#/';
+            return;
+        }
         const newRoute = this.routes.find(item => {
             return item.route === window.location.hash.split('?')[0];
         });
+        console.log(newRoute)
         if (!newRoute) {
             window.location.href = '#/';
             return
@@ -148,12 +155,21 @@ export class Router {
         document.getElementById('side-bar').style.display = 'flex'
         if (newRoute.route === '#/' || newRoute.route === '#/signup') {
             document.getElementById('side-bar').style.display = 'none';
+        } else {
+            this.toggleElements = document.getElementsByClassName('toggle-item');
+            this.toggleElements[0].onclick = function () {
+                window.location.href = '#/category_income';
+            }
+            this.toggleElements[1].onclick = function () {
+                window.location.href = '#/category_expenses';
+            }
         }
 
         this.contentElement.innerHTML =
             await fetch(newRoute.template).then(response => response.text());
         this.styleElement.setAttribute('href', newRoute.styles);
         this.titleElement.innerText = newRoute.title;
+
         const userInfo = Auth.getUserInfo()
         const accessToken = localStorage.getItem(Auth.accessTokenKey);
         if (userInfo && (accessToken !== 'undefined' && accessToken !== undefined && accessToken !== null)) {
@@ -166,5 +182,33 @@ export class Router {
     async getBalance() {
         const result = await CustomHttp.request(config.host + '/balance');
         return result.balance
+    }
+
+    sideBarSettings() {
+
+        if (window.location.hash === '#/main') {
+            document.getElementsByClassName('main-link')[0].classList.add('active');
+        } else {
+            document.getElementsByClassName('main-link')[0].classList.remove('active');
+        }
+        if (window.location.hash === '#/summary_table') {
+            document.getElementsByClassName('summary-link')[0].classList.add('active');
+        } else {
+            document.getElementsByClassName('summary-link')[0].classList.remove('active');
+        }
+        if (window.location.hash === '#/category_income' || window.location.hash === '#/category_expenses') {
+
+            if (window.location.hash === '#/category_income') {
+                this.toggleElements[0].classList.add('active');
+                this.toggleElements[1].classList.remove('active');
+            } else {
+                this.toggleElements[0].classList.remove('active');
+                this.toggleElements[1].classList.add('active');
+            }
+        } else {
+            this.toggleElements[0].classList.remove('active');
+            this.toggleElements[1].classList.remove('active');
+        }
+
     }
 }

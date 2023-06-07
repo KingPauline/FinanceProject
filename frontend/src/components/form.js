@@ -136,12 +136,13 @@ export class Form {
                 }
             }
             try {
-                const result = await CustomHttp.request(config.host + '/login', 'POST', {
+                const result =  await CustomHttp.request(config.host + '/login', 'POST', {
                     email: email,
                     password: password,
                     rememberMe: this.rememberMe,
                 })
                 if (result) {
+                    console.log(result)
                     if (result.error || !result.tokens.accessToken || !result.tokens.refreshToken || !result.user.name || !result.user.lastName || !result.user.id) {
                         throw new Error(result.message)
                     }
@@ -152,7 +153,7 @@ export class Form {
                         lastName: result.user.lastName,
                         userId: result.user.id
                     })
-                    location.href = '#/main';
+                    window.location.href = '#/main';
                 }
             } catch (error) {
                 console.log(error)
