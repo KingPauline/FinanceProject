@@ -1,0 +1,138 @@
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 360px;
+    padding: 15px;
+    margin: auto;
+    flex-direction: column;
+}
+
+.form-login .checkbox {
+    font-weight: 400;
+    text-align: left;
+}
+.form-signup {
+    max-width: 360px;
+}
+
+.form-login .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-login input[type="email"] {
+
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group {
+    margin-bottom: 10px;
+    width: 26vw;
+    text-align: center;
+}
+.form-login input[type="password"] {
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.login_logo {
+    margin-bottom: 60px;
+}
+
+form h1 {
+    font-style: normal;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    text-align: center;
+    color: #052C65;
+    margin-bottom: 20px;
+}
+form {
+    width: 100%;
+}
+.input-group-text {
+   background-color: #CED4DA;
+    border: 1px solid #CED4DA;
+}
+input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #6C757D;
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+
+    font: inherit;
+    color:#DEE2E6;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid #DEE2E6;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    margin-right:12px;
+}
+label {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #585e5e;;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+.btn {
+    font-size: 15px;
+    margin-top: 20px;
+}
+.signup-ref  {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+    text-align: left;
+}
+.validation {
+    display: none;
+    font-size: 10px;
+    font-family: Roboto, sans-serif;
+    color: darkred;
+}
